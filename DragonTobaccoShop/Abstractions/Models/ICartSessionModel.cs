@@ -1,7 +1,7 @@
 ﻿namespace Abstractions.Models
 {
-    public interface ICartSessionModel
+    public interface ICartSessionModel<TKey> where TKey : struct
     {
-        public Guid ID { get; set; }
+        public TKey ID { get; set; }
     }
 }

@@ -1,8 +1,8 @@
 ﻿namespace Abstractions.Models
 {
-    public interface IStengthModel
+    public interface IStengthModel<TKey> where TKey : struct
     {
-        public Guid ID { get; set; }
+        public TKey ID { get; set; }
         public string Kind { get; set; }
     }
 }

@@ -1,8 +1,8 @@
 ﻿namespace Abstractions.Models
 {
-    public interface IOrderItem
+    public interface IOrderItem<TKey> where TKey : struct
     {
-        public Guid ID { get; set; }
+        public TKey ID { get; set; }
         public int Count { get; set; }
     }
 }

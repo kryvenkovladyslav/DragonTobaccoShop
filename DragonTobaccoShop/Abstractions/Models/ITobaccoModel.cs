@@ -1,8 +1,8 @@
 ﻿namespace Abstractions.Models
 {
-    public interface ITobaccoModel
+    public interface ITobaccoModel<TKey> where TKey : struct
     {
-        public Guid ID { get; set; }
+        public TKey ID { get; set; }
         public string Name { get; set; }
         public double Weight { get; set; }
         public string Leaf { get; set; }

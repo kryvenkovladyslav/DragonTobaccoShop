@@ -1,8 +1,8 @@
 ﻿namespace Abstractions.Models
 {
-    public  interface IManufacturerModel
+    public  interface IManufacturerModel<TKey> where TKey : struct
     {
-        public Guid ID { get; set; }
+        public TKey ID { get; set; }
         public string Name { get; set; }
         public string ImagePath { get; set; }
     }
