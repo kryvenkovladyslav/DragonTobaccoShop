@@ -1,12 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Abstractions.Models
+﻿namespace Abstractions.Models
 {
-    internal interface ICheckedProduct
+    public interface ICheckedProduct<TKey> where TKey : struct
     {
+        public TKey ID { get; set; }
     }
 }
