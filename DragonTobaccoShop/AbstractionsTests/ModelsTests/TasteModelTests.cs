@@ -4,15 +4,15 @@ using Xunit;
 
 namespace AbstractionsTests.ModelsTests
 {
-    public sealed class StrengthModelState
+    public sealed class TasteModelTests
     {
         [Theory]
-        [InlineData("Kind")]
-        public void StrengthItemHasStringPropertyKind(string propertyName)
+        [InlineData("Name")]
+        public void TasteItemHasStringPropertyName(string propertyName)
         {
-            var targetType = typeof(IStengthModel<>);
+            var targetType = typeof(IReviewModel<>);
 
-            var propertyType = typeof(string);
+            var propertyType = typeof(int);
 
             var result = TestsHelper.TypeHasPropertyWithRequiredTypeAndName(targetType, propertyType, propertyName);
 

@@ -4,11 +4,11 @@ using Xunit;
 
 namespace AbstractionsTests.ModelsTests
 {
-    public class DescriptionModelTests : BaseTests
+    public sealed class DescriptionModelTests : BaseTests
     {
         [Theory]
         [InlineData("Path")]
-        public void TypeHasStringPropertyPath(string path)
+        public void DescriptionHasStringPropertyPath(string path)
         {
             var targerType = typeof(IDesctiptionModel<>);
             var propertyType = path.GetType();

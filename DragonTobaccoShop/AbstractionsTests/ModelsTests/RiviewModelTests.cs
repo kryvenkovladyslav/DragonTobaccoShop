@@ -8,7 +8,7 @@ namespace AbstractionsTests.ModelsTests
     {
         [Theory]
         [InlineData("Text")]
-        public void OrderItemHasStringPropertyText(string propertyName)
+        public void ReviewItemHasStringPropertyText(string propertyName)
         {
             var targetType = typeof(IReviewModel<>);
 
@@ -21,7 +21,7 @@ namespace AbstractionsTests.ModelsTests
 
         [Theory]
         [InlineData("Evaluation")]
-        public void OrderItemHasIntegerPropertyEvaluation(string propertyName)
+        public void ReviewItemHasIntegerPropertyEvaluation(string propertyName)
         {
             var targetType = typeof(IReviewModel<>);
 

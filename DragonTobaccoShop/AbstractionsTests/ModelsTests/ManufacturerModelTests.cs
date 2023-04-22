@@ -4,7 +4,7 @@ using Xunit;
 
 namespace AbstractionsTests.ModelsTests
 {
-    public class ManufacturerModelTests : BaseTests
+    public sealed class ManufacturerModelTests : BaseTests
     {
         [Theory]
         [InlineData("Name")]

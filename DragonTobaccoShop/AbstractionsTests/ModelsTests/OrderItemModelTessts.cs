@@ -4,7 +4,7 @@ using Xunit;
 
 namespace AbstractionsTests.ModelsTests
 {
-    public class OrderItemModelTessts : BaseTests
+    public sealed class OrderItemModelTessts : BaseTests
     {
         [Theory]
         [InlineData("Count")]

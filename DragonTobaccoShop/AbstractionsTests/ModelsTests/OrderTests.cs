@@ -8,7 +8,7 @@ namespace AbstractionsTests.ModelsTests
     {
         [Theory]
         [InlineData("Status")]
-        public void OrderItemHasStringPropertyStatus(string propertyName)
+        public void OrderHasStringPropertyStatus(string propertyName)
         {
             var targetType = typeof(IOrderModel<>);
 
@@ -21,7 +21,7 @@ namespace AbstractionsTests.ModelsTests
 
         [Theory]
         [InlineData("TototalPrice")]
-        public void OrderItemHasDeciamlPropertyTototalPrice(string propertyName)
+        public void OrderHasDeciamlPropertyTototalPrice(string propertyName)
         {
             var targetType = typeof(IOrderModel<>);
 

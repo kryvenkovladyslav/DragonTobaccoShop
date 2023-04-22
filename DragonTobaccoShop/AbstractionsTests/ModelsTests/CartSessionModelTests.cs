@@ -1,4 +1,4 @@
 ﻿namespace AbstractionsTests.ModelsTests
 {
-    public class CartSessionModelTests : BaseTests { }
+    public sealed class CartSessionModelTests : BaseTests { }
 }

@@ -1,4 +1,4 @@
 ﻿namespace AbstractionsTests.ModelsTests
 {
-    public class CheckedProductTests : BaseTests { }
+    public sealed class CheckedProductTests : BaseTests { }
 }
