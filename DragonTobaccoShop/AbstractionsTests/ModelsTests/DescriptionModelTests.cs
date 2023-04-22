@@ -1,5 +1,5 @@
 ﻿using Abstractions.Models;
-using System.Linq;
+using AbstractionsTests.Common;
 using Xunit;
 
 namespace AbstractionsTests.ModelsTests
@@ -10,10 +10,12 @@ namespace AbstractionsTests.ModelsTests
         [InlineData("Path")]
         public void TypeHasStringPropertyPath(string path)
         {
-            var requiredProperty = typeof(IDesctiptionModel<>).GetProperties()
-                .Where(p => p.PropertyType == typeof(string) && p.Name == path);
+            var targerType = typeof(IDesctiptionModel<>);
+            var propertyType = path.GetType();
+            
+            var result = TestsHelper.TypeHasPropertyWithRequiredTypeAndName(targerType, propertyType, path);
 
-            Assert.NotNull(requiredProperty);
+            Assert.True(result);
         }
     }
 }
