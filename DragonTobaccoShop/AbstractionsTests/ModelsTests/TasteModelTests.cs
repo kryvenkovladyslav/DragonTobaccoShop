@@ -10,9 +10,9 @@ namespace AbstractionsTests.ModelsTests
         [InlineData("Name")]
         public void TasteHasStringPropertyName(string propertyName)
         {
-            var targetType = typeof(IReviewModel<>);
+            var targetType = typeof(ITasteModel<>);
 
-            var propertyType = typeof(int);
+            var propertyType = typeof(string);
 
             var result = TestsHelper.TypeHasPropertyWithRequiredTypeAndName(targetType, propertyType, propertyName);
 
