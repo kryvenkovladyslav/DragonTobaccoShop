@@ -8,26 +8,26 @@ namespace AbstractionsTests.ModelsTests
     {
         [Theory]
         [InlineData("Name")]
-        public void ManufacturerModelHasStringPropertyName(string name)
+        public void ManufacturerHasStringPropertyName(string propertyName)
         {
             var targetType = typeof(IManufacturerModel<>);
 
-            var propertyType = name.GetType();
+            var propertyType = typeof(string);
 
-            var result = TestsHelper.TypeHasPropertyWithRequiredTypeAndName(targetType, propertyType, name);
+            var result = TestsHelper.TypeHasPropertyWithRequiredTypeAndName(targetType, propertyType, propertyName);
 
             Assert.True(result);
         }
 
         [Theory]
         [InlineData("ImagePath")]
-        public void ManufacturerModelHasStringPropertyImagePath(string imagePath)
+        public void ManufacturerHasStringPropertyImagePath(string propertyName)
         {
             var targetType = typeof(IManufacturerModel<>);
 
-            var propertyType = imagePath.GetType();
+            var propertyType = typeof(string);
 
-            var result = TestsHelper.TypeHasPropertyWithRequiredTypeAndName(targetType, propertyType, imagePath);
+            var result = TestsHelper.TypeHasPropertyWithRequiredTypeAndName(targetType, propertyType, propertyName);
 
             Assert.True(result);
         }

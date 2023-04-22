@@ -8,7 +8,7 @@ namespace AbstractionsTests.ModelsTests
     {
         [Theory]
         [InlineData("Kind")]
-        public void StrengthItemHasStringPropertyKind(string propertyName)
+        public void StrengthHasStringPropertyKind(string propertyName)
         {
             var targetType = typeof(IStengthModel<>);
 

@@ -9,7 +9,7 @@ namespace AbstractionsTests.ModelsTests
 
         [Theory]
         [InlineData("Price")]
-        public void ProductModelHasDecimalPropertyPrice(string propertyName)
+        public void ProductHasDecimalPropertyPrice(string propertyName)
         {
             var targetType = typeof(IProductModel<>);
 
@@ -22,7 +22,7 @@ namespace AbstractionsTests.ModelsTests
 
         [Theory]
         [InlineData("Rating")]
-        public void ProductModelHasDoublePropertyRaiting(string propertyName)
+        public void ProductHasDoublePropertyRaiting(string propertyName)
         {
             var targetType = typeof(IProductModel<>);
 
@@ -35,7 +35,7 @@ namespace AbstractionsTests.ModelsTests
 
         [Theory]
         [InlineData("IsAvailable")]
-        public void ProductModelHasBooleandPropertyIsAvailable(string propertyName)
+        public void ProductHasBooleandPropertyIsAvailable(string propertyName)
         {
             var targetType = typeof(IProductModel<>);
 
@@ -48,7 +48,7 @@ namespace AbstractionsTests.ModelsTests
 
         [Theory]
         [InlineData("Discount")]
-        public void ProductModelHasIntegerPropertyDiscount(string propertyName)
+        public void ProductHasIntegerPropertyDiscount(string propertyName)
         {
             var targetType = typeof(IProductModel<>);
 
@@ -61,7 +61,7 @@ namespace AbstractionsTests.ModelsTests
 
         [Theory]
         [InlineData("ImagePath")]
-        public void ProductModelHasStringPropertyImagePath(string propertyName)
+        public void ProductHasStringPropertyImagePath(string propertyName)
         {
             var targetType = typeof(IProductModel<>);
 

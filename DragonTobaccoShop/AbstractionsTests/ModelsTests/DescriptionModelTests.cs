@@ -8,12 +8,13 @@ namespace AbstractionsTests.ModelsTests
     {
         [Theory]
         [InlineData("Path")]
-        public void DescriptionHasStringPropertyPath(string path)
+        public void DescriptionHasStringPropertyPath(string propertyName)
         {
             var targerType = typeof(IDesctiptionModel<>);
-            var propertyType = path.GetType();
+
+            var propertyType = typeof(string);
             
-            var result = TestsHelper.TypeHasPropertyWithRequiredTypeAndName(targerType, propertyType, path);
+            var result = TestsHelper.TypeHasPropertyWithRequiredTypeAndName(targerType, propertyType, propertyName);
 
             Assert.True(result);
         }

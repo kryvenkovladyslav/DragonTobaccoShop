@@ -8,7 +8,7 @@ namespace AbstractionsTests.ModelsTests
     {
         [Theory]
         [InlineData("Name")]
-        public void TasteItemHasStringPropertyName(string propertyName)
+        public void TasteHasStringPropertyName(string propertyName)
         {
             var targetType = typeof(IReviewModel<>);
 

@@ -8,13 +8,13 @@ namespace AbstractionsTests.ModelsTests
     {
         [Theory]
         [InlineData("Count")]
-        public void OrderItemHasIntegerPropertyCount(string count)
+        public void OrderItemHasIntegerPropertyCount(string propertyName)
         {
             var targetType = typeof(IOrderItem<>);
 
             var propertyType = typeof(int);
 
-            var result = TestsHelper.TypeHasPropertyWithRequiredTypeAndName(targetType, propertyType, count);
+            var result = TestsHelper.TypeHasPropertyWithRequiredTypeAndName(targetType, propertyType, propertyName);
 
             Assert.True(result);
         }
