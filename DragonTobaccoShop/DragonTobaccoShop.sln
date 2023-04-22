@@ -11,8 +11,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{2B9B2FE2
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AbstractionsTests", "AbstractionsTests\AbstractionsTests.csproj", "{73DD5BF4-7AEC-48BC-A687-3F9BF6806A27}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApp1", "ConsoleApp1\ConsoleApp1.csproj", "{E5180D9A-C239-4706-8129-EC19178AC58A}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,10 +25,6 @@ Global
 		{73DD5BF4-7AEC-48BC-A687-3F9BF6806A27}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{73DD5BF4-7AEC-48BC-A687-3F9BF6806A27}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{73DD5BF4-7AEC-48BC-A687-3F9BF6806A27}.Release|Any CPU.Build.0 = Release|Any CPU
-		{E5180D9A-C239-4706-8129-EC19178AC58A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{E5180D9A-C239-4706-8129-EC19178AC58A}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{E5180D9A-C239-4706-8129-EC19178AC58A}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{E5180D9A-C239-4706-8129-EC19178AC58A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -38,7 +32,6 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{8AC56FD0-B286-4716-9812-1567C9A76A5F} = {068C0A60-8465-4D3C-9F5D-2FB75DC28250}
 		{73DD5BF4-7AEC-48BC-A687-3F9BF6806A27} = {2B9B2FE2-7D3A-4462-9B88-9A5E99527711}
-		{E5180D9A-C239-4706-8129-EC19178AC58A} = {2B9B2FE2-7D3A-4462-9B88-9A5E99527711}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {ABD4655B-8651-4968-9BDE-7559F3CF6288}
