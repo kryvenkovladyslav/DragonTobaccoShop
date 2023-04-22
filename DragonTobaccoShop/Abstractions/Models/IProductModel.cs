@@ -1,6 +1,6 @@
 ﻿namespace Abstractions.Models
 {
-    internal interface IProductModel<TKey> where TKey : struct
+    public interface IProductModel<TKey> where TKey : struct
     {
         public TKey ID { get; set; }
         public decimal Price { get; set; }
