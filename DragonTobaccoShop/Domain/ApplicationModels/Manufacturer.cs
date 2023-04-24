@@ -1,12 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Abstractions.Models;
+using System;
 
 namespace Domain.ApplicationModels
 {
-    internal class Manufacturer
+    public class Manufacturer : IManufacturerModel<Guid>
     {
+        public Guid ID { get; set; }
+        public string Name { get; set; }
+        public string ImagePath { get; set; }
     }
 }

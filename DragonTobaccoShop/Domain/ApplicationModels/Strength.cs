@@ -1,12 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Abstractions.Models;
+using System;
 
 namespace Domain.ApplicationModels
 {
-    internal class Strength
+    public class Strength : IStengthModel<Guid>
     {
+        public Guid ID { get; set; }
+        public string Kind { get; set; }
     }
 }

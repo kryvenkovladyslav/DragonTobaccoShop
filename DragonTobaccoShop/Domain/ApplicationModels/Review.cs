@@ -1,12 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Abstractions.Models;
+using System;
 
 namespace Domain.ApplicationModels
 {
-    internal class Review
+    public class Review : IReviewModel<Guid>
     {
+        public Guid ID { get; set; }
+        public string Text { get; set; }
+        public int Evaluation { get; set; }
     }
 }
