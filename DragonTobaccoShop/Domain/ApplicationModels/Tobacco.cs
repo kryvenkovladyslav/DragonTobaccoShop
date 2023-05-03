@@ -1,5 +1,6 @@
 ﻿using Abstractions.Models;
 using System;
+using System.Collections.Generic;
 
 namespace Domain.ApplicationModels
 {
@@ -17,5 +18,13 @@ namespace Domain.ApplicationModels
         public bool IsMint { get; set; }
         public bool IsSweet { get; set; }
         public bool IsIced { get; set; }
+
+        public Guid ManufacturerID { get; set; }
+        public Manufacturer Manufacturer { get; set; }
+        public Guid StrengthID { get; set; }
+        public Strength Strength { get; set; }
+        public Product Product { get; set; }
+        public ICollection<Description> Descriptions { get; set; }
+        public ICollection<TobaccosTastes> Tastes { get; set; }
     }
 }

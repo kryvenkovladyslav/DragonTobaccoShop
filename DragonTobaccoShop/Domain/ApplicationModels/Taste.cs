@@ -1,5 +1,6 @@
 ﻿using Abstractions.Models;
 using System;
+using System.Collections.Generic;
 
 namespace Domain.ApplicationModels
 {
@@ -7,5 +8,7 @@ namespace Domain.ApplicationModels
     {
         public Guid ID { get; set; }
         public string Name { get; set; }
+
+        public ICollection<TobaccosTastes> Tobaccos { get; set; }
     }
 }
