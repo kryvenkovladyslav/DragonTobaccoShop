@@ -6,8 +6,8 @@ namespace Domain.ApplicationModels
 {
     public class WishList : IWishListModel<Guid>
     {
-        public Guid ID { get; set; }
-        public User User { get; set; }
-        public ICollection<Product> Products { get; set; }
+        public virtual Guid ID { get; set; }
+        public virtual User User { get; set; }
+        public virtual ICollection<Product> Products { get; set; }
     }
 }

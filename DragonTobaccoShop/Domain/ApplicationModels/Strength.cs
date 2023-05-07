@@ -6,9 +6,9 @@ namespace Domain.ApplicationModels
 {
     public class Strength : IStengthModel<Guid>
     {
-        public Guid ID { get; set; }
-        public string Kind { get; set; }
+        public virtual Guid ID { get; set; }
+        public virtual string Kind { get; set; }
         
-        public ICollection<Tobacco> Tobaccos { get; set; }
+        public virtual ICollection<Tobacco> Tobaccos { get; set; }
     }
 }

@@ -6,9 +6,9 @@ namespace Domain.ApplicationModels
 {
     public class Taste : ITasteModel<Guid>
     {
-        public Guid ID { get; set; }
-        public string Name { get; set; }
+        public virtual Guid ID { get; set; }
+        public virtual string Name { get; set; }
 
-        public ICollection<TobaccosTastes> Tobaccos { get; set; }
+        public virtual ICollection<TobaccosTastes> Tobaccos { get; set; }
     }
 }

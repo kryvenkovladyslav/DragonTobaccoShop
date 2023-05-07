@@ -6,11 +6,11 @@ namespace Domain.ApplicationModels
 {
     public class Manufacturer : IManufacturerModel<Guid>
     {
-        public Guid ID { get; set; }
-        public string Name { get; set; }
-        public string ImagePath { get; set; }
+        public virtual Guid ID { get; set; }
+        public virtual string Name { get; set; }
+        public virtual string ImagePath { get; set; }
 
-        public ICollection<Tobacco> Tobaccos { get; set; }
-        public ICollection<Description> Descriptions { get; set; }
+        public virtual ICollection<Tobacco> Tobaccos { get; set; }
+        public virtual ICollection<ManufacturerDescription> Description { get; set; }
     }
 }

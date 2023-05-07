@@ -6,25 +6,25 @@ namespace Domain.ApplicationModels
 {
     public class Tobacco : ITobaccoModel<Guid>
     {
-        public Guid ID { get; set; }
-        public string Name { get; set; }
-        public double Weight { get; set; }
-        public string Leaf { get; set; }
-        public string Package { get; set; }
-        public string Slicing { get; set; }
-        public string Country { get; set; }
-        public bool IsSmoky { get; set; }
-        public bool IsMixed { get; set; }
-        public bool IsMint { get; set; }
-        public bool IsSweet { get; set; }
-        public bool IsIced { get; set; }
+        public virtual Guid ID { get; set; }
+        public virtual string Name { get; set; }
+        public virtual double Weight { get; set; }
+        public virtual string Leaf { get; set; }
+        public virtual string Package { get; set; }
+        public virtual string Slicing { get; set; }
+        public virtual string Country { get; set; }
+        public virtual bool IsSmoky { get; set; }
+        public virtual bool IsMixed { get; set; }
+        public virtual bool IsMint { get; set; }
+        public virtual bool IsSweet { get; set; }
+        public virtual bool IsIced { get; set; }
 
-        public Guid ManufacturerID { get; set; }
-        public Manufacturer Manufacturer { get; set; }
-        public Guid StrengthID { get; set; }
-        public Strength Strength { get; set; }
-        public Product Product { get; set; }
-        public ICollection<Description> Descriptions { get; set; }
-        public ICollection<TobaccosTastes> Tastes { get; set; }
+        public virtual Guid ManufacturerID { get; set; }
+        public virtual Manufacturer Manufacturer { get; set; }
+        public virtual Guid StrengthID { get; set; }
+        public virtual Strength Strength { get; set; }
+        public virtual Product Product { get; set; }
+        public virtual ICollection<TobaccosTastes> Tastes { get; set; }
+        public virtual ICollection<TobaccoDescription> oDescriptions { get; set; }
     }
 }

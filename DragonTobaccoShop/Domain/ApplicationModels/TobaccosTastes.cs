@@ -2,12 +2,12 @@
 
 namespace Domain.ApplicationModels
 {
-    public sealed class TobaccosTastes
+    public class TobaccosTastes
     {
-        public Guid TobaccoID { get; set; }
-        public Guid TasteID { get; set; }
+        public virtual Guid TobaccoID { get; set; }
+        public virtual Guid TasteID { get; set; }
 
-        public Tobacco Tobacco { get; set; }
-        public Taste Taste { get; set; }
+        public virtual Tobacco Tobacco { get; set; }
+        public virtual Taste Taste { get; set; }
     }
 }

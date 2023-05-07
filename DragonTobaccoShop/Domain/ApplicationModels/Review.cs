@@ -5,14 +5,14 @@ namespace Domain.ApplicationModels
 {
     public class Review : IReviewModel<Guid>
     {
-        public Guid ID { get; set; }
-        public string Text { get; set; }
-        public int Evaluation { get; set; }
+        public virtual Guid ID { get; set; }
+        public virtual string Text { get; set; }
+        public virtual int Evaluation { get; set; }
 
-        public Guid UserID { get; set; }
-        public User User { get; set; }
+        public virtual Guid UserID { get; set; }
+        public virtual User User { get; set; }
 
         public Guid ProductID { get; set; }
-        public Product Product { get; set; }
+        public virtual Product Product { get; set; }
     }
 }

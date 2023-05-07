@@ -6,9 +6,9 @@ namespace Domain.ApplicationModels
 {
     public class CartSession : ICartSessionModel<Guid>
     {
-        public Guid ID { get; set; }
-        public Guid UserID { get; set; }
-        public User User { get; set; }
-        public ICollection<OrderItem> OrderItems { get; set; } 
+        public virtual Guid ID { get; set; }
+        public virtual Guid UserID { get; set; }
+        public virtual User User { get; set; }
+        public virtual ICollection<OrderItem> OrderItems { get; set; } 
     }
 }
