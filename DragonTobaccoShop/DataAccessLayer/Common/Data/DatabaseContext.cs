@@ -1,10 +1,8 @@
 ﻿using DataAccessLayer.Common.Configuration;
 using Domain.ApplicationModels;
-using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using System;
-using System.Reflection.Emit;
 
 namespace DataAccessLayer.Common.Data
 {
