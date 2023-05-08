@@ -1,8 +1,10 @@
-﻿namespace Abstractions.Models
+﻿using Abstractions.Common;
+
+namespace Abstractions.Models
 {
     public interface IStengthModel<TKey> where TKey : struct
     {
         public TKey ID { get; set; }
-        public string Kind { get; set; }
+        public StrengthKind Kind { get; set; }
     }
 }

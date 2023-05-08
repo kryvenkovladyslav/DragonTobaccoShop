@@ -17,14 +17,25 @@ namespace DataAccessLayer.Common.Configuration
                 .IsRequired()
                 .HasColumnName("ID");
 
-            checkedProduct.Property(u => u.UserID)
+            checkedProduct.Property(cp => cp.Date)
+               .HasColumnType("date")
+               .IsRequired()
+               .HasColumnName("Date");
+
+            checkedProduct.Property(cp => cp.UserID)
                 .HasColumnType("UNIQUEIDENTIFIER")
                 .IsRequired()
                 .HasColumnName("UserID");
 
-            checkedProduct.HasOne(cp => cp.Product).WithOne(p => p.CheckedProducts)
-                .HasForeignKey<Product>(cp => cp.ID)
-                .HasPrincipalKey<CheckedProduct>(cp => cp.ID)
+            checkedProduct.Property(cp => cp.ProductID)
+                .HasColumnType("UNIQUEIDENTIFIER")
+                .IsRequired()
+                .HasColumnName("ProductID");
+
+            checkedProduct.HasOne(cp => cp.Product).WithMany(p => p.CheckedProducts)
+                .HasForeignKey(cp => cp.ProductID).HasPrincipalKey(p => p.ID)
+                .OnDelete(DeleteBehavior.Cascade)
+                .IsRequired()
                 .HasConstraintName("Product_FK_CheckedProduct_ID_Constraint");
 
         }

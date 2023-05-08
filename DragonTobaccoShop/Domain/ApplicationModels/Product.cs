@@ -13,10 +13,10 @@ namespace Domain.ApplicationModels
         public virtual int Discount { get; set; }
         public virtual string ImagePath { get; set; }
 
-        public virtual Guid WishListID { get; set; }
+        public virtual Guid? WishListID { get; set; }
         public virtual WishList WishList { get; set; }
         public virtual Tobacco Tobacco { get; set; }
-        public virtual OrderItem OrderItem { get; set; }
+        public virtual ICollection<OrderItem> OrderItems { get; set; }
         public virtual ICollection<Review> Reviews { get; set; }
         public virtual ICollection<CheckedProduct> CheckedProducts { get; set; }
     }

@@ -11,6 +11,6 @@ namespace Domain.ApplicationModels
         public virtual string ImagePath { get; set; }
 
         public virtual ICollection<Tobacco> Tobaccos { get; set; }
-        public virtual ICollection<ManufacturerDescription> Description { get; set; }
+        public virtual ICollection<ManufacturerDescription> Descriptions { get; set; }
     }
 }

@@ -18,9 +18,16 @@ namespace DataAccessLayer.Common.Configuration
                 .HasColumnName("ID");
 
             cartSession.Property(cs => cs.UserID)
-                .HasColumnType("UNIQUEIDENTIFIER")
-                .IsRequired()
-                .HasColumnName("UserID");
+               .HasColumnType("UNIQUEIDENTIFIER")
+               .IsRequired()
+               .HasColumnName("UserID");
+
+            cartSession.HasMany(cs => cs.OrderItems).WithOne(oi => oi.CartSession)
+                .HasForeignKey(oi => oi.CartSessionID).HasPrincipalKey(cs => cs.ID)
+                .OnDelete(DeleteBehavior.NoAction)
+                .IsRequired(false)
+                .HasConstraintName("OrderItem_FK_CartSession_ID_Constraint");
+
         }
     }
 }

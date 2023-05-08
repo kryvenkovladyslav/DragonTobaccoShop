@@ -40,9 +40,10 @@ namespace DataAccessLayer.Common.Configuration
                 .HasColumnName("BirthDay");
 
             user.HasOne(u => u.WishList).WithOne(w => w.User)
-                .HasForeignKey<WishList>(w => w.ID)
-                .HasPrincipalKey<User>(u => u.Id)
-                .HasConstraintName("WithList_FK_User_ID_Constraint");
+                .HasForeignKey<WishList>(w => w.ID).HasPrincipalKey<User>(u => u.Id)
+                .OnDelete(DeleteBehavior.Cascade)
+                .IsRequired()
+                .HasConstraintName("User_FK_WishList_ID_Constraint");
 
             user.HasMany(u => u.Orders).WithOne(o => o.User)
                 .HasForeignKey(o => o.UserID).HasPrincipalKey(u => u.Id)
@@ -50,23 +51,29 @@ namespace DataAccessLayer.Common.Configuration
                 .IsRequired()
                 .HasConstraintName("Order_FK_User_ID_Constraint");
 
-            user.HasMany(u => u.CartSessions).WithOne(o => o.User)
+            user.HasMany(u => u.CartSessions).WithOne(cs => cs.User)
                 .HasForeignKey(cs => cs.UserID).HasPrincipalKey(u => u.Id)
                 .OnDelete(DeleteBehavior.Cascade)
                 .IsRequired()
                 .HasConstraintName("CartSession_FK_User_ID_Constraint");
 
-            user.HasMany(u => u.Reviews).WithOne(o => o.User)
+            user.HasMany(u => u.Reviews).WithOne(r => r.User)
                 .HasForeignKey(r => r.UserID).HasPrincipalKey(u => u.Id)
                 .OnDelete(DeleteBehavior.Cascade)
                 .IsRequired()
                 .HasConstraintName("Review_FK_User_ID_Constraint");
 
-            user.HasMany(u => u.CheckedProducts).WithOne(o => o.User)
+            user.HasMany(u => u.CheckedProducts).WithOne(cp => cp.User)
                .HasForeignKey(cp => cp.UserID).HasPrincipalKey(u => u.Id)
                .OnDelete(DeleteBehavior.Cascade)
                .IsRequired()
                .HasConstraintName("CheckedProduct_FK_User_ID_Constraint");
+
+            user.HasMany(u => u.UsersRoles).WithOne(ur => ur.User)
+               .HasForeignKey(ur => ur.UserId).HasPrincipalKey(u => u.Id)
+               .OnDelete(DeleteBehavior.Cascade)
+               .IsRequired()
+               .HasConstraintName("UsersRoles_FK_User_ID_Constraint");
         }
     }
 }

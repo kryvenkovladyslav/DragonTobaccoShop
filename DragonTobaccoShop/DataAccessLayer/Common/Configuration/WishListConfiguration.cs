@@ -1,11 +1,6 @@
 ﻿using Domain.ApplicationModels;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DataAccessLayer.Common.Configuration
 {
@@ -21,6 +16,12 @@ namespace DataAccessLayer.Common.Configuration
                 .HasDefaultValueSql("NEWID()")
                 .IsRequired()
                 .HasColumnName("ID");
+
+            wishLish.HasMany(wl => wl.Products).WithOne(p => p.WishList)
+                .HasForeignKey(p => p.WishListID).HasPrincipalKey(w => w.ID)
+                .OnDelete(DeleteBehavior.SetNull)
+                .IsRequired(false)
+                .HasConstraintName("Product_FK_WishList_ID_Constraint");
         }
     }
 }

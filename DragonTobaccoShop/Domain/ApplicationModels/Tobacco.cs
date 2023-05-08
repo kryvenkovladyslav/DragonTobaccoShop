@@ -19,12 +19,12 @@ namespace Domain.ApplicationModels
         public virtual bool IsSweet { get; set; }
         public virtual bool IsIced { get; set; }
 
-        public virtual Guid ManufacturerID { get; set; }
+        public virtual Guid? ManufacturerID { get; set; }
         public virtual Manufacturer Manufacturer { get; set; }
-        public virtual Guid StrengthID { get; set; }
+        public virtual Guid? StrengthID { get; set; }
         public virtual Strength Strength { get; set; }
         public virtual Product Product { get; set; }
         public virtual ICollection<TobaccosTastes> Tastes { get; set; }
-        public virtual ICollection<TobaccoDescription> oDescriptions { get; set; }
+        public virtual ICollection<TobaccoDescription> Descriptions { get; set; }
     }
 }
