@@ -1,12 +1,15 @@
-﻿using DataAccessLayer.Common.Configuration;
+﻿using Abstractions.ApplicationModels;
+using DataAccessLayer.Common.Configuration;
 using Domain.ApplicationModels;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using System;
 
 namespace DataAccessLayer.Common.Data
 {
-    public sealed class DatabaseContext : IdentityDbContext<User, Role, Guid>
+    public sealed class DatabaseContext : IdentityDbContext<User, Role, Guid, 
+        IdentityUserClaim<Guid>, UserRole, IdentityUserLogin<Guid>, IdentityRoleClaim<Guid>, IdentityUserToken<Guid>>
     {
         public DatabaseContext() { }
 
@@ -16,8 +19,6 @@ namespace DataAccessLayer.Common.Data
         {
             base.OnModelCreating(builder);
 
-            builder.ApplyConfiguration(new ManufacturerDescriptionConfiguration());
-            builder.ApplyConfiguration(new TobaccoDescriptionConfiguration());
             builder.ApplyConfiguration(new TobaccosTastesConfiguration());
             builder.ApplyConfiguration(new CheckedProductConfiguration());
             builder.ApplyConfiguration(new ManufacturerConfiguration());
@@ -31,7 +32,7 @@ namespace DataAccessLayer.Common.Data
             builder.ApplyConfiguration(new TasteConfiguration());
             builder.ApplyConfiguration(new UserConfiguration());
             builder.ApplyConfiguration(new RoleConfiguration());
-            builder.ApplyConfiguration(new UsersRolesConfiguration());
+            builder.ApplyConfiguration(new UserRoleConfiguration());
             builder.ApplyConfiguration(new WishListConfiguration());            
         }
 

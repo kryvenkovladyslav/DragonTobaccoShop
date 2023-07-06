@@ -22,6 +22,61 @@ namespace DataAccessLayer.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
 
+            modelBuilder.Entity("Abstractions.ApplicationModels.UserRole", b =>
+                {
+                    b.Property<Guid>("UserId")
+                        .HasColumnType("UNIQUEIDENTIFIER");
+
+                    b.Property<Guid>("RoleId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("UserId", "RoleId");
+
+                    b.HasIndex("RoleId");
+
+                    b.ToTable("UserRole", (string)null);
+                });
+
+            modelBuilder.Entity("Abstractions.Models.Product", b =>
+                {
+                    b.Property<Guid>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("UNIQUEIDENTIFIER")
+                        .HasColumnName("ID")
+                        .HasDefaultValueSql("NEWID()");
+
+                    b.Property<int>("Discount")
+                        .HasColumnType("int")
+                        .HasColumnName("Discount");
+
+                    b.Property<string>("ImagePath")
+                        .HasColumnType("nvarchar")
+                        .HasColumnName("ImagePath");
+
+                    b.Property<bool>("IsAvailable")
+                        .HasColumnType("bit")
+                        .HasColumnName("IsAvailable");
+
+                    b.Property<decimal>("Price")
+                        .HasColumnType("decimal")
+                        .HasColumnName("Price");
+
+                    b.Property<double>("Rating")
+                        .HasColumnType("float")
+                        .HasColumnName("Rating");
+
+                    b.Property<Guid?>("WishListID")
+                        .HasColumnType("UNIQUEIDENTIFIER")
+                        .HasColumnName("WishListID");
+
+                    b.HasKey("ID")
+                        .HasName("Product_PK_ID_Constraint");
+
+                    b.HasIndex("WishListID");
+
+                    b.ToTable("Product", (string)null);
+                });
+
             modelBuilder.Entity("Domain.ApplicationModels.CartSession", b =>
                 {
                     b.Property<Guid>("ID")
@@ -98,31 +153,6 @@ namespace DataAccessLayer.Migrations
                     b.ToTable("Manufacturer", (string)null);
                 });
 
-            modelBuilder.Entity("Domain.ApplicationModels.ManufacturerDescription", b =>
-                {
-                    b.Property<Guid>("ID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("UNIQUEIDENTIFIER")
-                        .HasColumnName("ID")
-                        .HasDefaultValueSql("NEWID()");
-
-                    b.Property<Guid>("ManufacturerID")
-                        .HasColumnType("UNIQUEIDENTIFIER")
-                        .HasColumnName("ManufacturerID");
-
-                    b.Property<string>("Path")
-                        .IsRequired()
-                        .HasColumnType("nvarchar")
-                        .HasColumnName("Path");
-
-                    b.HasKey("ID")
-                        .HasName("ManufacturerDescription_PK_ID_Constraint");
-
-                    b.HasIndex("ManufacturerID");
-
-                    b.ToTable("ManufacturerDescription", (string)null);
-                });
-
             modelBuilder.Entity("Domain.ApplicationModels.Order", b =>
                 {
                     b.Property<Guid>("ID")
@@ -193,46 +223,6 @@ namespace DataAccessLayer.Migrations
                     b.HasIndex("ProductID");
 
                     b.ToTable("OrderItem", (string)null);
-                });
-
-            modelBuilder.Entity("Domain.ApplicationModels.Product", b =>
-                {
-                    b.Property<Guid>("ID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("UNIQUEIDENTIFIER")
-                        .HasColumnName("ID")
-                        .HasDefaultValueSql("NEWID()");
-
-                    b.Property<int>("Discount")
-                        .HasColumnType("int")
-                        .HasColumnName("Discount");
-
-                    b.Property<string>("ImagePath")
-                        .HasColumnType("nvarchar")
-                        .HasColumnName("ImagePath");
-
-                    b.Property<bool>("IsAvailable")
-                        .HasColumnType("bit")
-                        .HasColumnName("IsAvailable");
-
-                    b.Property<decimal>("Price")
-                        .HasColumnType("decimal")
-                        .HasColumnName("Price");
-
-                    b.Property<double>("Rating")
-                        .HasColumnType("float")
-                        .HasColumnName("Rating");
-
-                    b.Property<Guid?>("WishListID")
-                        .HasColumnType("UNIQUEIDENTIFIER")
-                        .HasColumnName("WishListID");
-
-                    b.HasKey("ID")
-                        .HasName("Product_PK_ID_Constraint");
-
-                    b.HasIndex("WishListID");
-
-                    b.ToTable("Product", (string)null);
                 });
 
             modelBuilder.Entity("Domain.ApplicationModels.Review", b =>
@@ -418,31 +408,6 @@ namespace DataAccessLayer.Migrations
                     b.ToTable("Tobacco", (string)null);
                 });
 
-            modelBuilder.Entity("Domain.ApplicationModels.TobaccoDescription", b =>
-                {
-                    b.Property<Guid>("ID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("UNIQUEIDENTIFIER")
-                        .HasColumnName("ID")
-                        .HasDefaultValueSql("NEWID()");
-
-                    b.Property<string>("Path")
-                        .IsRequired()
-                        .HasColumnType("nvarchar")
-                        .HasColumnName("Path");
-
-                    b.Property<Guid>("TobaccoID")
-                        .HasColumnType("UNIQUEIDENTIFIER")
-                        .HasColumnName("TobaccoID");
-
-                    b.HasKey("ID")
-                        .HasName("TobaccoDescription_PK_ID_Constraint");
-
-                    b.HasIndex("TobaccoID");
-
-                    b.ToTable("TobaccoDescription", (string)null);
-                });
-
             modelBuilder.Entity("Domain.ApplicationModels.TobaccosTastes", b =>
                 {
                     b.Property<Guid>("TobaccoID")
@@ -473,7 +438,8 @@ namespace DataAccessLayer.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("AccountImagePath")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar")
+                        .HasColumnName("AccountImagePath");
 
                     b.Property<DateTime>("BirthDay")
                         .HasColumnType("date")
@@ -636,21 +602,6 @@ namespace DataAccessLayer.Migrations
                     b.ToTable("AspNetUserLogins", (string)null);
                 });
 
-            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserRole<System.Guid>", b =>
-                {
-                    b.Property<Guid>("UserId")
-                        .HasColumnType("UNIQUEIDENTIFIER")
-                        .HasColumnName("UserID");
-
-                    b.Property<Guid>("RoleId")
-                        .HasColumnType("UNIQUEIDENTIFIER")
-                        .HasColumnName("RoleID");
-
-                    b.HasKey("UserId", "RoleId");
-
-                    b.ToTable("AspNetUserRoles", (string)null);
-                });
-
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<System.Guid>", b =>
                 {
                     b.Property<Guid>("UserId")
@@ -670,13 +621,43 @@ namespace DataAccessLayer.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
-            modelBuilder.Entity("Domain.ApplicationModels.UsersRoles", b =>
+            modelBuilder.Entity("Abstractions.ApplicationModels.UserRole", b =>
                 {
-                    b.HasBaseType("Microsoft.AspNetCore.Identity.IdentityUserRole<System.Guid>");
+                    b.HasOne("Domain.ApplicationModels.Role", "Role")
+                        .WithMany("UserRoles")
+                        .HasForeignKey("RoleId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
-                    b.HasIndex("RoleId");
+                    b.HasOne("Domain.ApplicationModels.User", "User")
+                        .WithMany("UserRoles")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
-                    b.ToTable("UsersRoles", (string)null);
+                    b.Navigation("Role");
+
+                    b.Navigation("User");
+                });
+
+            modelBuilder.Entity("Abstractions.Models.Product", b =>
+                {
+                    b.HasOne("Domain.ApplicationModels.Tobacco", "Tobacco")
+                        .WithOne("Product")
+                        .HasForeignKey("Abstractions.Models.Product", "ID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired()
+                        .HasConstraintName("Product_FK_Tobacco_ID_Constraint");
+
+                    b.HasOne("Domain.ApplicationModels.WishList", "WishList")
+                        .WithMany("Products")
+                        .HasForeignKey("WishListID")
+                        .OnDelete(DeleteBehavior.SetNull)
+                        .HasConstraintName("Product_FK_WishList_ID_Constraint");
+
+                    b.Navigation("Tobacco");
+
+                    b.Navigation("WishList");
                 });
 
             modelBuilder.Entity("Domain.ApplicationModels.CartSession", b =>
@@ -693,7 +674,7 @@ namespace DataAccessLayer.Migrations
 
             modelBuilder.Entity("Domain.ApplicationModels.CheckedProduct", b =>
                 {
-                    b.HasOne("Domain.ApplicationModels.Product", "Product")
+                    b.HasOne("Abstractions.Models.Product", "Product")
                         .WithMany("CheckedProducts")
                         .HasForeignKey("ProductID")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -710,18 +691,6 @@ namespace DataAccessLayer.Migrations
                     b.Navigation("Product");
 
                     b.Navigation("User");
-                });
-
-            modelBuilder.Entity("Domain.ApplicationModels.ManufacturerDescription", b =>
-                {
-                    b.HasOne("Domain.ApplicationModels.Manufacturer", "Manufacturer")
-                        .WithMany("Descriptions")
-                        .HasForeignKey("ManufacturerID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired()
-                        .HasConstraintName("ManufacturerDescription_FK_Manufacturer_ID_Constraint");
-
-                    b.Navigation("Manufacturer");
                 });
 
             modelBuilder.Entity("Domain.ApplicationModels.Order", b =>
@@ -751,7 +720,7 @@ namespace DataAccessLayer.Migrations
                         .IsRequired()
                         .HasConstraintName("Order_FK_OrderItem_ID_Constraint");
 
-                    b.HasOne("Domain.ApplicationModels.Product", "Product")
+                    b.HasOne("Abstractions.Models.Product", "Product")
                         .WithMany("OrderItems")
                         .HasForeignKey("ProductID")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -765,29 +734,9 @@ namespace DataAccessLayer.Migrations
                     b.Navigation("Product");
                 });
 
-            modelBuilder.Entity("Domain.ApplicationModels.Product", b =>
-                {
-                    b.HasOne("Domain.ApplicationModels.Tobacco", "Tobacco")
-                        .WithOne("Product")
-                        .HasForeignKey("Domain.ApplicationModels.Product", "ID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired()
-                        .HasConstraintName("Product_FK_Tobacco_ID_Constraint");
-
-                    b.HasOne("Domain.ApplicationModels.WishList", "WishList")
-                        .WithMany("Products")
-                        .HasForeignKey("WishListID")
-                        .OnDelete(DeleteBehavior.SetNull)
-                        .HasConstraintName("Product_FK_WishList_ID_Constraint");
-
-                    b.Navigation("Tobacco");
-
-                    b.Navigation("WishList");
-                });
-
             modelBuilder.Entity("Domain.ApplicationModels.Review", b =>
                 {
-                    b.HasOne("Domain.ApplicationModels.Product", "Product")
+                    b.HasOne("Abstractions.Models.Product", "Product")
                         .WithMany("Reviews")
                         .HasForeignKey("ProductID")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -822,18 +771,6 @@ namespace DataAccessLayer.Migrations
                     b.Navigation("Manufacturer");
 
                     b.Navigation("Strength");
-                });
-
-            modelBuilder.Entity("Domain.ApplicationModels.TobaccoDescription", b =>
-                {
-                    b.HasOne("Domain.ApplicationModels.Tobacco", "Tobacco")
-                        .WithMany("Descriptions")
-                        .HasForeignKey("TobaccoID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired()
-                        .HasConstraintName("TobaccoDescription_FK_Tobacco_ID_Constraint");
-
-                    b.Navigation("Tobacco");
                 });
 
             modelBuilder.Entity("Domain.ApplicationModels.TobaccosTastes", b =>
@@ -905,31 +842,13 @@ namespace DataAccessLayer.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("Domain.ApplicationModels.UsersRoles", b =>
+            modelBuilder.Entity("Abstractions.Models.Product", b =>
                 {
-                    b.HasOne("Domain.ApplicationModels.Role", "Role")
-                        .WithMany("UsersRoles")
-                        .HasForeignKey("RoleId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired()
-                        .HasConstraintName("UsersRoles_FK_Role_ID_Constraint");
+                    b.Navigation("CheckedProducts");
 
-                    b.HasOne("Domain.ApplicationModels.User", "User")
-                        .WithMany("UsersRoles")
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired()
-                        .HasConstraintName("UsersRoles_FK_User_ID_Constraint");
+                    b.Navigation("OrderItems");
 
-                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityUserRole<System.Guid>", null)
-                        .WithOne()
-                        .HasForeignKey("Domain.ApplicationModels.UsersRoles", "UserId", "RoleId")
-                        .OnDelete(DeleteBehavior.ClientCascade)
-                        .IsRequired();
-
-                    b.Navigation("Role");
-
-                    b.Navigation("User");
+                    b.Navigation("Reviews");
                 });
 
             modelBuilder.Entity("Domain.ApplicationModels.CartSession", b =>
@@ -939,8 +858,6 @@ namespace DataAccessLayer.Migrations
 
             modelBuilder.Entity("Domain.ApplicationModels.Manufacturer", b =>
                 {
-                    b.Navigation("Descriptions");
-
                     b.Navigation("Tobaccos");
                 });
 
@@ -949,18 +866,9 @@ namespace DataAccessLayer.Migrations
                     b.Navigation("Items");
                 });
 
-            modelBuilder.Entity("Domain.ApplicationModels.Product", b =>
-                {
-                    b.Navigation("CheckedProducts");
-
-                    b.Navigation("OrderItems");
-
-                    b.Navigation("Reviews");
-                });
-
             modelBuilder.Entity("Domain.ApplicationModels.Role", b =>
                 {
-                    b.Navigation("UsersRoles");
+                    b.Navigation("UserRoles");
                 });
 
             modelBuilder.Entity("Domain.ApplicationModels.Strength", b =>
@@ -975,8 +883,6 @@ namespace DataAccessLayer.Migrations
 
             modelBuilder.Entity("Domain.ApplicationModels.Tobacco", b =>
                 {
-                    b.Navigation("Descriptions");
-
                     b.Navigation("Product");
 
                     b.Navigation("Tastes");
@@ -992,7 +898,7 @@ namespace DataAccessLayer.Migrations
 
                     b.Navigation("Reviews");
 
-                    b.Navigation("UsersRoles");
+                    b.Navigation("UserRoles");
 
                     b.Navigation("WishList");
                 });

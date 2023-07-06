@@ -92,12 +92,6 @@ namespace DataAccessLayer.Common.Configuration
                .OnDelete(DeleteBehavior.Cascade)
                .IsRequired()
                .HasConstraintName("TobaccosTastes_FK_Tobacco_ID_Constraint");
-
-            tobacco.HasMany(t => t.Descriptions).WithOne(d => d.Tobacco)
-                .HasForeignKey(d => d.TobaccoID).HasPrincipalKey(t => t.ID)
-                .OnDelete(DeleteBehavior.Cascade)
-                .IsRequired()
-                .HasConstraintName("TobaccoDescription_FK_Tobacco_ID_Constraint");
         }
     }
 }

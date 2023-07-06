@@ -1,4 +1,5 @@
-﻿using Domain.ApplicationModels;
+﻿using Abstractions.ApplicationModels;
+using Domain.ApplicationModels;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
@@ -28,6 +29,11 @@ namespace DataAccessLayer.Common.Configuration
                 .HasMaxLength(70)
                 .IsRequired()
                 .HasColumnName("LastName");
+
+            user.Property(u => u.AccountImagePath)
+               .HasColumnType("nvarchar")
+               .IsRequired(false)
+               .HasColumnName("AccountImagePath");
 
             user.Property(u => u.RegistraionDate)
                 .HasColumnType("date")
@@ -68,12 +74,6 @@ namespace DataAccessLayer.Common.Configuration
                .OnDelete(DeleteBehavior.Cascade)
                .IsRequired()
                .HasConstraintName("CheckedProduct_FK_User_ID_Constraint");
-
-            user.HasMany(u => u.UsersRoles).WithOne(ur => ur.User)
-               .HasForeignKey(ur => ur.UserId).HasPrincipalKey(u => u.Id)
-               .OnDelete(DeleteBehavior.Cascade)
-               .IsRequired()
-               .HasConstraintName("UsersRoles_FK_User_ID_Constraint");
         }
     }
 }

@@ -19,5 +19,10 @@ namespace Domain.ApplicationModels
         public virtual ICollection<CartSession> CartSessions { get; set; } 
         public virtual ICollection<CheckedProduct> CheckedProducts { get; set; }
         public virtual ICollection<UsersRoles> UsersRoles { get; set; }
+
+        public User() 
+        {
+            RegistraionDate = DateTime.Now;
+        }
     }
 }

@@ -1,4 +1,8 @@
-﻿using System.Linq.Expressions;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Linq.Expressions;
+using System.Threading.Tasks;
 
 namespace Abstractions.DataAccessLayer.Repository
 {
@@ -16,9 +20,13 @@ namespace Abstractions.DataAccessLayer.Repository
 
         public void DeleteRange(params TEntity[] entities);
 
-        public Task<TEntity> FindByID<TKey>(TKey id) where TKey : struct;
+        public Task<TEntity> FindByIDAsync<TKey>(TKey id) where TKey : IEquatable<TKey>;
 
-        public Task<TEntity> FirstOrDefaut(Expression<Func<TEntity, bool>> predicate);
+        public Task<TEntity> FirstOrDefautAsync(Expression<Func<TEntity, bool>> predicate);
+
+        public Task<ICollection<TEntity>> FilterAsync(Expression<Func<TEntity, bool>> predicate);
+
+        public IQueryable<TEntity> GetQueryable();
 
         public Task<IEnumerable<TEntity>> GetAllAsync();
 

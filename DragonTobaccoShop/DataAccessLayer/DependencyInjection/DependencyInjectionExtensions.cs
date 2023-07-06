@@ -1,4 +1,5 @@
 ﻿using Abstractions.DataAccessLayer.Repository;
+using Abstractions.Models;
 using DataAccessLayer.Common.Repository;
 using Domain.ApplicationModels;
 using Microsoft.Extensions.DependencyInjection;
@@ -15,8 +16,6 @@ namespace DataAccessLayer.DependencyInjection
         
         public static void TryAddScopedAllApplicationRepositories(this IServiceCollection services)
         {
-            services.TryAddScopedRepository<ManufacturerDescription>();
-            services.TryAddScopedRepository<TobaccoDescription>();
             services.TryAddScopedRepository<CheckedProduct>();
             services.TryAddScopedRepository<Manufacturer>();
             services.TryAddScopedRepository<Order>();
@@ -29,7 +28,6 @@ namespace DataAccessLayer.DependencyInjection
             services.TryAddScopedRepository<Tobacco>();
             services.TryAddScopedRepository<TobaccosTastes>();
             services.TryAddScopedRepository<User>();
-            services.TryAddScopedRepository<UsersRoles>();
             services.TryAddScopedRepository<WishList>();
             services.TryAddScopedRepository<CartSession>();
         }

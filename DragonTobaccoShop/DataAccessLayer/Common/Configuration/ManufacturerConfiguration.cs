@@ -34,12 +34,6 @@ namespace DataAccessLayer.Common.Configuration
                 .OnDelete(DeleteBehavior.SetNull)
                 .IsRequired(false)
                 .HasConstraintName("Tobacco_FK_Manufacturer_ID_Constraint");
-
-            manufacturer.HasMany(m => m.Descriptions).WithOne(d => d.Manufacturer)
-                .HasForeignKey(d => d.ManufacturerID).HasPrincipalKey(m => m.ID)
-                .OnDelete(DeleteBehavior.Cascade)
-                .IsRequired()
-                .HasConstraintName("ManufacturerDescription_FK_Manufacturer_ID_Constraint");
         }
     }
 }

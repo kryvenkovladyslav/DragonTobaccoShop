@@ -1,4 +1,5 @@
-﻿using Domain.ApplicationModels;
+﻿using Abstractions.Models;
+using Domain.ApplicationModels;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
@@ -21,11 +22,6 @@ namespace DataAccessLayer.Common.Configuration
                 .HasColumnType("decimal")
                 .IsRequired()
                 .HasColumnName("Price");
-
-            product.Property(p => p.Rating)
-                .HasColumnType("float")
-                .IsRequired()
-                .HasColumnName("Rating");
 
             product.Property(p => p.IsAvailable)
                 .HasColumnType("bit")
